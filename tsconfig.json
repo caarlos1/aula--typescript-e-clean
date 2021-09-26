@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "rootDir": "src",
+    "baseUrl": "src",
+    "paths": {
+      "@/*": ["*"] // Qualquer pasta que estiver em src será possível referenciar.
+    }
+  }
+}
