@@ -1,16 +1,10 @@
-class LocalSavePurchases {
-    constructor(private readonly cacheStore: CacheStore) {}
+import { CacheStore } from "@/data/protocols/cache";
+import { LocalSavePurchases } from "@/data/usecases";
 
-    async save(): Promise<void> {
-        this.cacheStore.delete("purchases");
-    }
-}
-
-interface CacheStore {
-    deleteCallsCount: number;
-    key: string;
-    delete: (key: string) => void;
-}
+type SutTypes = {
+    cacheStore: CacheStore;
+    sut: LocalSavePurchases;
+};
 
 class CacheStoreSpy implements CacheStore {
     deleteCallsCount = 0;
@@ -21,11 +15,6 @@ class CacheStoreSpy implements CacheStore {
         this.key = key;
     }
 }
-
-type SutTypes = {
-    cacheStore: CacheStore;
-    sut: LocalSavePurchases;
-};
 
 const makeSut = (): SutTypes => {
     const cacheStore = new CacheStoreSpy();
