@@ -2,6 +2,7 @@
   "compilerOptions": {
     "rootDir": "src",
     "baseUrl": "src",
+    "esModuleInterop": true,
     "paths": {
       "@/*": ["*"] // Qualquer pasta que estiver em src será possível referenciar.
     }
